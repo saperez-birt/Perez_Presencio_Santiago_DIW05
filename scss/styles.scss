@@ -1,0 +1,294 @@
+// Colors 
+
+$principal:rgb(0,154,183);
+$secundario:rgb(176,224,230);
+$blanco:#fff;
+$storie:rgba(0,154,183,.2);
+
+
+body {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    color: $principal !important;
+}
+
+p {
+    margin: 0 !important;
+}
+
+ul {
+    margin: 0 !important;
+}
+
+.nav-main {
+    background-color: $blanco;
+    padding: 1rem;
+
+}
+
+.nav-logo {
+    cursor: pointer;
+    img {
+        width: 100px;
+    }
+    .search {
+        color: $principal;
+        input {
+            border: none;
+            background-color: $secundario;
+        }
+    }
+}
+
+.nav-center {
+    list-style-type: none;
+    li {
+        cursor: pointer;
+        color: $principal;
+        width: 50px;
+        height: 30px;
+        text-align: center;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    .active {
+        width: 50px;
+        padding-bottom: 10px;
+        border-bottom: 3px solid $principal;
+    }
+    li:not(:nth-child(1)):hover {
+        background-color: $principal;
+        color: $blanco;
+        border-radius: 8px;
+    }
+}
+
+.nav-user {
+    list-style-type: none;
+    li {
+        color: $principal;
+        width: 50px;
+        height: 50px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        cursor: pointer;
+
+    }
+    li:not(:nth-child(5)):hover {
+        background-color: $principal;
+        color: $blanco;
+        border-radius: 50%;
+    }
+    li:nth-child(5):hover {
+        font-weight: 700;
+    }
+}
+
+.user-img {
+    width: 50px;
+    border-radius: 50%;
+}
+
+.left div:not(:nth-child(8)){
+    width: 200px;
+    padding: 0 10px;
+
+}
+.left div:not(:nth-child(8)):hover {
+    background-color: $principal;
+    color: $blanco;
+    border-radius: 50px;
+}
+
+.left div:nth-child(8) a {
+    color: $principal;
+    text-decoration: none;
+    padding: 0;
+}
+
+.left div:nth-child(8) a:hover {
+    border-bottom: 2px solid $principal;
+    font-weight: 700;
+}
+
+@mixin story-style($image, $applyOverlay: true) {
+    background-image: url($image);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    border-radius: 15px;
+    height: 200px;
+    max-width: 150px;
+    position: relative;
+
+    img {
+        width: 50px;
+        height: 50px;
+        border-radius: 50%;
+        padding: 5px;
+        border: 1px solid $blanco;
+    }
+
+    @if $applyOverlay {
+        &:hover::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+            border-radius: 15px;
+        }
+
+        &:hover .hover-text {
+            display: block;
+        }
+    }
+}
+
+.hover-text {
+    display: none;
+    position: absolute;
+    top: 20%;
+    left: 30%;
+    transform: translate(-50%, -50%);
+    color: rgba(209, 209, 209, 0.801);
+    font-size: 1rem;
+    font-weight: bold;
+    text-align: center;
+    padding: 0 10px;
+    @media (max-width: 768px) {
+        font-size: 0.8rem;
+    }
+    @media (max-width: 576px) {
+        font-size: 0.6rem;
+    }
+}
+
+.story1 {
+    @include story-style('../images/persona1.jpg', false);
+    p {
+        width: 100%;
+        text-align: center;
+        padding: 5px 10px !important;
+        background-color: $secundario;
+        font-weight: 700;
+        border-radius: 8px;
+    }
+    :hover {
+        font-weight: 900;
+    }
+}
+
+.story2 {
+    @include story-style('../images/paisaje2.jpg');
+    :hover {
+        background-color: $storie;
+    }
+}
+
+.story3 {
+    @include story-style('../images/paisaje1.jpg');
+}
+
+.story4 {
+    @include story-style('../images/ad1.jpg');
+}
+
+// Media queries for tablet and mobile
+@media (max-width: 768px) {
+    .story1, .story2, .story3, .story4 {
+        height: 150px;
+    }
+}
+
+.publicar input {
+    border: none;
+    background-color: $secundario;
+    width: 100%;
+    padding: 10px 20px;
+    border-radius: 50px;
+    font-weight: 700;
+    color: $principal !important;
+
+    ::placeholder {
+        font-weight: 700;
+        color: $principal !important;
+    }
+}
+
+.media-icons a {
+    text-decoration: none;
+    color: $principal;
+}
+
+hr {
+    border: 1px solid $secundario;
+    margin: 10px 0;
+}
+
+.post {
+    border: 2px solid $secundario;
+}
+
+.post-buttom div{
+    background-color: $secundario;
+    width: 100%;
+    margin: 0px 10px;
+}
+
+.user-info p:hover {
+    border-bottom: 2px solid $principal;
+}
+
+.likes:hover {
+    background-color: $principal;
+    color: $blanco;
+    border-radius: 50px;
+}
+
+.comments:hover {
+    background-color: $principal;
+    color: $blanco;
+    border-radius: 50px;
+}
+
+.like:hover {
+    background-color: $principal;
+    color: $blanco;
+}
+
+.team-img {
+    width: 50px;
+    border-radius: 50%;
+    border: 2px solid $secundario;
+}
+
+.ad-img {
+    width: 100%;
+}
+.ad-img:hover {
+    transform: scale(1.1);
+}
+
+.contact {
+    padding: 0px 10px;
+}
+
+.contact:hover {
+    background-color: $principal;
+    color: $blanco;
+}
+
+.media-icons:hover {
+    background-color: $principal;
+    color: $blanco;
+    border-radius: 20px;
+    a {
+        color: $blanco;
+    }
+}
